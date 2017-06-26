@@ -15,5 +15,14 @@
         <attr name="super_bottomLeftRadius" format="dimension"/>
         <attr name="super_bottomRightRadius" format="dimension"/>
 
+        <attr name="super_drawable" format="reference"/>
+        <attr name="super_drawablePadding" format="dimension"/>
+        <attr name="super_drawableWidth" format="dimension"/>
+        <attr name="super_drawableHeight" format="dimension"/>
+        <attr name="super_drawableGravity">
+            <enum name="left" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+
     </declare-styleable>
 </resources>
