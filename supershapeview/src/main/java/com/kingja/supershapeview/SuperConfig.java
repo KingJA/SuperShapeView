@@ -1,22 +1,19 @@
 package com.kingja.supershapeview;
 
-import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
-import android.util.Log;
+import android.view.View;
+
+import static java.security.AccessController.getContext;
 
 /**
  * Description:TODO
- * Create Time:2017/6/26 10:32
+ * Create Time:2017/7/7 15:49
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class SuperShapeView extends AppCompatTextView {
+public class SuperConfig {
     private static final float DEFAULT_CORNER_RADIUS = 0f;
     private static final float DEFAULT_STROKE_WIDTH = 0f;
     private static final int DEFAULT_STROKE_COLOR = 0;
@@ -29,27 +26,11 @@ public class SuperShapeView extends AppCompatTextView {
     private static final float DEFAULT_TOP_RIGHT_RADIUS = 0f;
     private static final float DEFAULT_BOTTOM_LEFT_RADIUS = 0f;
     private static final float DEFAULT_BOTTOM_IGHT_RADIUS = 0f;
-    private static final String TAG = "SuperShapeView";
+    private static final String TAG = "SuperConfig";
     private GradientDrawable mGradientDrawable;
 
-    public SuperShapeView(Context context) {
-        super(context);
-    }
-
-    public SuperShapeView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        initSuperShapeView(attrs);
-    }
-
-
-    public SuperShapeView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        initSuperShapeView(attrs);
-    }
-
-
-    private void initSuperShapeView(AttributeSet attrs) {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.SuperShapeView);
+    public  void beSuperView(AttributeSet attrs, View view) {
+        TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.SuperShapeView);
         float mCornerRadius = typedArray.getDimension(R.styleable.SuperShapeView_super_cornerRadius,
                 DEFAULT_CORNER_RADIUS);
         int mStrokeColor = typedArray.getColor(R.styleable.SuperShapeView_super_strokeColor, DEFAULT_STROKE_COLOR);
@@ -71,14 +52,15 @@ public class SuperShapeView extends AppCompatTextView {
 
         typedArray.recycle();
 
-        setupGradientDrawable(mCornerRadius, mStrokeColor, mSolidColor, mStrokeWidth, mDashWidth, mDashGap,
+        setupGradientDrawable(view, mCornerRadius, mStrokeColor, mSolidColor, mStrokeWidth, mDashWidth, mDashGap,
                 mTopLeftRadius, mTopRightRadius, mBottomLeftRadius, mBottomRightRadius);
 
     }
 
-    private void setupGradientDrawable(float mCornerRadius, int mStrokeColor, int mSolidColor, int mStrokeWidth, float
+    private  void setupGradientDrawable(View view, float mCornerRadius, int mStrokeColor, int mSolidColor, int
+            mStrokeWidth, float
             mDashWidth, float mDashGap, float mTopLeftRadius, float mTopRightRadius, float mBottomLeftRadius, float
-                                               mBottomRightRadius) {
+                                                      mBottomRightRadius) {
         mGradientDrawable = new GradientDrawable();
         mGradientDrawable.setColor(mSolidColor);
         mGradientDrawable.setStroke(mStrokeWidth, mStrokeColor, mDashWidth, mDashGap);
@@ -90,27 +72,6 @@ public class SuperShapeView extends AppCompatTextView {
         } else {
             mGradientDrawable.setCornerRadius(mCornerRadius);
         }
-        setBackgroundDrawable(mGradientDrawable);
-    }
-
-    /*  private int dp2px(float dp) {
-          return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
-      }*/
-    private int dp2px(float dpValue) {
-        final float scale = getContext().getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-    }
-
-    private int[] mDrawableBounds = new int[4];
-
-
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
+        view.setBackground(mGradientDrawable);
     }
 }
