@@ -1,8 +1,8 @@
 # SuperShapeView
 A smart custom view support shapes for TextView ,EditView ,instead of shape.xml. CLICK THE ***STAR***  if it's useful for you.
 
-## Preview
-![](super_shape_view.png)
+## Preview*
+<div align="center"><img src="super_shape_view.png"/></div>
 ## Custom attribute
 | attribute | format | example  |
 | :------------- |:-------------| :-----|
