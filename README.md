@@ -39,14 +39,14 @@ A smart custom view support shapes for TextView ,EditView ,instead of shape.xml.
 * EditText
 ```xml
 <com.kingja.supershapeview.SuperShapeEditText
-        android:textColor="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="请输入用户名"
         android:padding="12dp"
-      android:hint="请输入用户名"
+        android:textColor="#ffffff"
         app:super_cornerRadius="6dp"
-        app:super_strokeWidth="1dp"
-        app:super_solidColor="#b143ba"/>
+        app:super_solidColor="#b143ba"
+        app:super_strokeWidth="1dp" />
 ```
 
 ## Changelog
