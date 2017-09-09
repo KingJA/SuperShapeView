@@ -43,7 +43,7 @@ A smart custom view support shapes for TextView ,EditView ,instead of shape.xml.
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
-        android:hint="请输入用户名"
+      android:hint="请输入用户名"
         app:super_cornerRadius="6dp"
         app:super_strokeWidth="1dp"
         app:super_solidColor="#b143ba"/>
