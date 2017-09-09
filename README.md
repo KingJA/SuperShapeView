@@ -3,6 +3,7 @@ A smart custom view support shapes for TextView ,EditView ,instead of shape.xml.
 
 ## Preview*
 <div align="center"><img src="super_shape_view.png"/></div>
+
 ## Custom attribute
 | attribute | format | example  |
 | :------------- |:-------------| :-----|
