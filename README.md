@@ -55,9 +55,8 @@ A smart custom view support shapes for TextView ,EditView ,instead of shape.xml.
 - Initial release 
 
 ## Contact me
-Any questions,Welcome to contact me.
-* email:kingjavip@gmail.com
-* [Blog](http://www.jianshu.com/u/8a1a8ed656e8)
+Any questions:Welcome to contact me.
+* Email:kingjavip@gmail.com
 
 ## License
 
