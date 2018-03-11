@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.kingja.supershapeview.view.SuperSuperShapeTextView;
+import com.kingja.supershapeview.view.SuperShapeTextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeStyle(View view) {
-        SuperSuperShapeTextView superShapeTextView = (SuperSuperShapeTextView) view;
+        SuperShapeTextView superShapeTextView = (SuperShapeTextView) view;
         superShapeTextView.setCorner(56);
         superShapeTextView.setSolidColor(0xff303F9F);
         superShapeTextView.setStrokeColor(getResources().getColor(R.color.colorAccent));

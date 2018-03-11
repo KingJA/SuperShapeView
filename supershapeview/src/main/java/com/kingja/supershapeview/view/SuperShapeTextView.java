@@ -15,21 +15,21 @@ import com.kingja.supershapeview.core.SuperManager;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class SuperSuperShapeTextView extends AppCompatTextView implements ISuperShape {
+public class SuperShapeTextView extends AppCompatTextView implements ISuperShape {
 
     private SuperManager superManager;
 
-    public SuperSuperShapeTextView(Context context) {
+    public SuperShapeTextView(Context context) {
         super(context);
     }
 
-    public SuperSuperShapeTextView(Context context, @Nullable AttributeSet attrs) {
+    public SuperShapeTextView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         initSuperShapeView(attrs);
     }
 
 
-    public SuperSuperShapeTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SuperShapeTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initSuperShapeView(attrs);
     }
