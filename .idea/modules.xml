@@ -3,10 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SuperShapeView.iml" filepath="$PROJECT_DIR$/SuperShapeView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SuperShapeView.iml" filepath="$PROJECT_DIR$/SuperShapeView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/supershapeview/supershapeview.iml" filepath="$PROJECT_DIR$/supershapeview/supershapeview.iml" />
       <module fileurl="file://$PROJECT_DIR$/supershapeview/supershapeview.iml" filepath="$PROJECT_DIR$/supershapeview/supershapeview.iml" />
     </modules>
   </component>
