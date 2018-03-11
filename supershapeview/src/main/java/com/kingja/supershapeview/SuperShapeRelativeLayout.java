@@ -28,6 +28,6 @@ public class SuperShapeRelativeLayout extends RelativeLayout {
     }
 
     private void initSuperShapeView(AttributeSet attrs) {
-        new SuperConfig().beSuperView(attrs, this);
+        new SuperManager().beSuperView(attrs, this);
     }
 }

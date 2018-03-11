@@ -29,6 +29,6 @@ public class SuperShapeLinearLayout extends LinearLayout {
 
 
     private void initSuperShapeView(AttributeSet attrs) {
-        new SuperConfig().beSuperView(attrs, this);
+        new SuperManager().beSuperView(attrs, this);
     }
 }

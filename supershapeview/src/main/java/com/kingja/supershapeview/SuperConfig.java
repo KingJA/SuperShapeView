@@ -1,68 +1,102 @@
 package com.kingja.supershapeview;
 
-import android.content.res.TypedArray;
-import android.graphics.drawable.GradientDrawable;
-import android.util.AttributeSet;
-import android.view.View;
+import java.io.Serializable;
 
 /**
  * Description:TODO
- * Create Time:2017/7/7 15:49
+ * Create Time:2018/3/11 17:37
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class SuperConfig {
-    private static final float DEFAULT_CORNER_RADIUS = 0f;
-    private static final float DEFAULT_STROKE_WIDTH = 0f;
-    private static final int DEFAULT_STROKE_COLOR = 0;
-    private static final int DEFAULT_SOLID_COLOR = 0;
-    private static final float DEFAULT_DASHWIDTH = 0f;
-    private static final float DEFAULT_DASHGAP = 0f;
-    private static final float DEFAULT_TOP_LEFT_RADIUS = 0f;
-    private static final float DEFAULT_TOP_RIGHT_RADIUS = 0f;
-    private static final float DEFAULT_BOTTOM_LEFT_RADIUS = 0f;
-    private static final float DEFAULT_BOTTOM_IGHT_RADIUS = 0f;
-    private static final String TAG = "SuperConfig";
-    private GradientDrawable mGradientDrawable;
+public class SuperConfig implements Serializable {
+    private float cornerRadius;
+    private int strokeColor;
+    private int solidColor;
+    private int strokeWidth;
+    private float dashWidth;
+    private float dashGap;
+    private float topLeftRadius;
+    private float topRightRadius;
+    private float bottomLeftRadius;
+    private float bottomRightRadius;
 
-    public void beSuperView(AttributeSet attrs, View view) {
-        TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.SuperShapeView);
-        float mCornerRadius = typedArray.getDimension(R.styleable.SuperShapeView_super_cornerRadius,
-                DEFAULT_CORNER_RADIUS);
-        int mStrokeColor = typedArray.getColor(R.styleable.SuperShapeView_super_strokeColor, DEFAULT_STROKE_COLOR);
-        int mSolidColor = typedArray.getColor(R.styleable.SuperShapeView_super_solidColor, DEFAULT_SOLID_COLOR);
-        int mStrokeWidth = (int) typedArray.getDimension(R.styleable.SuperShapeView_super_strokeWidth,
-                DEFAULT_STROKE_WIDTH);
-
-        float mDashWidth = typedArray.getDimension(R.styleable.SuperShapeView_super_dashWidth, DEFAULT_DASHWIDTH);
-        float mDashGap = typedArray.getDimension(R.styleable.SuperShapeView_super_dashGap, DEFAULT_DASHGAP);
-
-        float mTopLeftRadius = typedArray.getDimension(R.styleable.SuperShapeView_super_topLeftRadius,
-                DEFAULT_TOP_LEFT_RADIUS);
-        float mTopRightRadius = typedArray.getDimension(R.styleable.SuperShapeView_super_topRightRadius,
-                DEFAULT_TOP_RIGHT_RADIUS);
-        float mBottomLeftRadius = typedArray.getDimension(R.styleable.SuperShapeView_super_bottomLeftRadius,
-                DEFAULT_BOTTOM_LEFT_RADIUS);
-        float mBottomRightRadius = typedArray.getDimension(R.styleable.SuperShapeView_super_bottomRightRadius,
-                DEFAULT_BOTTOM_IGHT_RADIUS);
-        typedArray.recycle();
-        setupGradientDrawable(view, mCornerRadius, mStrokeColor, mSolidColor, mStrokeWidth, mDashWidth, mDashGap,
-                mTopLeftRadius, mTopRightRadius, mBottomLeftRadius, mBottomRightRadius);
+    public float getCornerRadius() {
+        return cornerRadius;
     }
 
-    private void setupGradientDrawable(View view, float mCornerRadius, int mStrokeColor, int mSolidColor, int
-            mStrokeWidth, float mDashWidth, float mDashGap, float mTopLeftRadius, float mTopRightRadius, float
-                                               mBottomLeftRadius, float mBottomRightRadius) {
-        mGradientDrawable = new GradientDrawable();
-        mGradientDrawable.setColor(mSolidColor);
-        mGradientDrawable.setStroke(mStrokeWidth, mStrokeColor, mDashWidth, mDashGap);
-        float[] radius = {mTopLeftRadius, mTopLeftRadius, mTopRightRadius, mTopRightRadius, mBottomRightRadius,
-                mBottomRightRadius, mBottomLeftRadius, mBottomLeftRadius};
-        if (mCornerRadius == DEFAULT_CORNER_RADIUS) {
-            mGradientDrawable.setCornerRadii(radius);
-        } else {
-            mGradientDrawable.setCornerRadius(mCornerRadius);
-        }
-        view.setBackground(mGradientDrawable);
+    public void setCornerRadius(float cornerRadius) {
+        this.cornerRadius = cornerRadius;
+    }
+
+    public int getStrokeColor() {
+        return strokeColor;
+    }
+
+    public void setStrokeColor(int strokeColor) {
+        this.strokeColor = strokeColor;
+    }
+
+    public int getSolidColor() {
+        return solidColor;
+    }
+
+    public void setSolidColor(int solidColor) {
+        this.solidColor = solidColor;
+    }
+
+    public int getStrokeWidth() {
+        return strokeWidth;
+    }
+
+    public void setStrokeWidth(int strokeWidth) {
+        this.strokeWidth = strokeWidth;
+    }
+
+    public float getDashWidth() {
+        return dashWidth;
+    }
+
+    public void setDashWidth(float dashWidth) {
+        this.dashWidth = dashWidth;
+    }
+
+    public float getDashGap() {
+        return dashGap;
+    }
+
+    public void setDashGap(float dashGap) {
+        this.dashGap = dashGap;
+    }
+
+    public float getTopLeftRadius() {
+        return topLeftRadius;
+    }
+
+    public void setTopLeftRadius(float topLeftRadius) {
+        this.topLeftRadius = topLeftRadius;
+    }
+
+    public float getTopRightRadius() {
+        return topRightRadius;
+    }
+
+    public void setTopRightRadius(float topRightRadius) {
+        this.topRightRadius = topRightRadius;
+    }
+
+    public float getBottomLeftRadius() {
+        return bottomLeftRadius;
+    }
+
+    public void setBottomLeftRadius(float bottomLeftRadius) {
+        this.bottomLeftRadius = bottomLeftRadius;
+    }
+
+    public float getBottomRightRadius() {
+        return bottomRightRadius;
+    }
+
+    public void setBottomRightRadius(float bottomRightRadius) {
+        this.bottomRightRadius = bottomRightRadius;
     }
 }
