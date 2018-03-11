@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="24dp"
-    tools:context="sample.kingja.supershapeview.MainActivity">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:focusable="true"
+              android:focusableInTouchMode="true"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:paddingTop="12dp"
+              android:paddingBottom="12dp"
+              android:paddingRight="24dp"
+              android:paddingLeft="24dp"
+              tools:context="sample.kingja.supershapeview.MainActivity">
 
 
     <com.kingja.supershapeview.SuperShapeTextView
@@ -91,15 +94,6 @@
         app:super_topLeftRadius="4dp"
         app:super_topRightRadius="16dp" />
 
-    <com.kingja.supershapeview.SuperShapeEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:hint="请输入用户名"
-        android:padding="12dp"
-        android:textSize="12sp"
-        app:super_strokeColor="#1497e2"
-        app:super_strokeWidth="1dp" />
 
     <com.kingja.supershapeview.SuperShapeEditText
         android:layout_width="match_parent"
@@ -113,4 +107,35 @@
         app:super_solidColor="#dadada"
         app:super_strokeWidth="1dp" />
 
+    <com.kingja.supershapeview.SuperShapeLinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:super_cornerRadius="20dp"
+        app:super_solidColor="#e4261c"
+        app:super_strokeWidth="2dp">
+
+        <TextView
+            android:layout_marginRight="4dp"
+            android:textColor="#ffffff"
+            android:text="¥"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginRight="4dp"
+            android:textSize="30sp"
+            android:textColor="#ffffff"
+            android:text="27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textColor="#ffffff"
+            android:text="起"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </com.kingja.supershapeview.SuperShapeLinearLayout>
 </LinearLayout>

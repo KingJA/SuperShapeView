@@ -2,8 +2,8 @@ package com.kingja.supershapeview;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+import android.widget.FrameLayout;
 
 /**
  * Description:TODO
@@ -11,19 +11,18 @@ import android.util.AttributeSet;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class SuperShapeTextView extends AppCompatTextView {
+public class SuperShapeFrameLayout extends FrameLayout {
 
-    public SuperShapeTextView(Context context) {
+    public SuperShapeFrameLayout(Context context) {
         super(context);
     }
 
-    public SuperShapeTextView(Context context, @Nullable AttributeSet attrs) {
+    public SuperShapeFrameLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         initSuperShapeView(attrs);
     }
 
-
-    public SuperShapeTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SuperShapeFrameLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initSuperShapeView(attrs);
     }

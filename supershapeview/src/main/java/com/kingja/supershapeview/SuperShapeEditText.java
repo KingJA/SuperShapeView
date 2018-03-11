@@ -3,7 +3,6 @@ package com.kingja.supershapeview;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
 /**
@@ -23,16 +22,12 @@ public class SuperShapeEditText extends AppCompatEditText {
         initSuperShapeView(attrs);
     }
 
-
     public SuperShapeEditText(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initSuperShapeView(attrs);
     }
 
-
     private void initSuperShapeView(AttributeSet attrs) {
         new SuperConfig().beSuperView(attrs, this);
     }
-
-
 }
