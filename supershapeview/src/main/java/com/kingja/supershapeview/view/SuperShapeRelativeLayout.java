@@ -1,9 +1,11 @@
-package com.kingja.supershapeview;
+package com.kingja.supershapeview.view;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
+import android.widget.RelativeLayout;
+
+import com.kingja.supershapeview.core.SuperManager;
 
 /**
  * Description:TODO
@@ -11,18 +13,18 @@ import android.util.AttributeSet;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class SuperShapeEditText extends AppCompatEditText {
+public class SuperShapeRelativeLayout extends RelativeLayout {
 
-    public SuperShapeEditText(Context context) {
+    public SuperShapeRelativeLayout(Context context) {
         super(context);
     }
 
-    public SuperShapeEditText(Context context, @Nullable AttributeSet attrs) {
+    public SuperShapeRelativeLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         initSuperShapeView(attrs);
     }
 
-    public SuperShapeEditText(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SuperShapeRelativeLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initSuperShapeView(attrs);
     }

@@ -1,4 +1,4 @@
-package com.kingja.supershapeview;
+package com.kingja.supershapeview.view;
 
 import android.content.Context;
 import android.os.Parcelable;
@@ -6,28 +6,30 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
+import com.kingja.supershapeview.core.ISuperShape;
+import com.kingja.supershapeview.core.SuperManager;
+
 /**
  * Description:TODO
  * Create Time:2017/6/26 10:32
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class SuperShapeTextView extends AppCompatTextView implements IShape {
+public class SuperSuperShapeTextView extends AppCompatTextView implements ISuperShape {
 
-    private static final String TAG = "SuperShapeTextView";
     private SuperManager superManager;
 
-    public SuperShapeTextView(Context context) {
+    public SuperSuperShapeTextView(Context context) {
         super(context);
     }
 
-    public SuperShapeTextView(Context context, @Nullable AttributeSet attrs) {
+    public SuperSuperShapeTextView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         initSuperShapeView(attrs);
     }
 
 
-    public SuperShapeTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SuperSuperShapeTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initSuperShapeView(attrs);
     }

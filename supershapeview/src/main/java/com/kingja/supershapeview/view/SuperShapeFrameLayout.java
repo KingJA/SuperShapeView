@@ -1,9 +1,11 @@
-package com.kingja.supershapeview;
+package com.kingja.supershapeview.view;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+
+import com.kingja.supershapeview.core.SuperManager;
 
 /**
  * Description:TODO

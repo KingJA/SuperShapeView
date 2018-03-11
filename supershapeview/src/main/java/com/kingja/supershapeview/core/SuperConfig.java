@@ -1,4 +1,4 @@
-package com.kingja.supershapeview;
+package com.kingja.supershapeview.core;
 
 import java.io.Serializable;
 

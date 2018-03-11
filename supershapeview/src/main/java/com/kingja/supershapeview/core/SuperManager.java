@@ -1,6 +1,5 @@
-package com.kingja.supershapeview;
+package com.kingja.supershapeview.core;
 
-import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Parcel;
@@ -9,13 +8,15 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.kingja.supershapeview.R;
+
 /**
  * Description:TODO
  * Create Time:2017/7/7 15:49
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class SuperManager implements IShape {
+public class SuperManager implements ISuperShape {
     private static final float DEFAULT_CORNER_RADIUS = 0f;
     private static final float DEFAULT_STROKE_WIDTH = 0f;
     private static final int DEFAULT_STROKE_COLOR = 0;
@@ -26,19 +27,17 @@ public class SuperManager implements IShape {
     private static final float DEFAULT_TOP_RIGHT_RADIUS = 0f;
     private static final float DEFAULT_BOTTOM_LEFT_RADIUS = 0f;
     private static final float DEFAULT_BOTTOM_IGHT_RADIUS = 0f;
-    private Context context;
     private View view;
     private SuperConfig superConfig;
 
-    void beSuperView(AttributeSet attrs, View view) {
-        context = view.getContext();
+    public void beSuperView(AttributeSet attrs, View view) {
         this.view = view;
         obtainAttrs(attrs);
         setupGradientDrawable();
     }
 
     private void obtainAttrs(AttributeSet attrs) {
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SuperShapeView);
+        TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.SuperShapeView);
         superConfig = new SuperConfig();
         superConfig.setCornerRadius(typedArray.getDimension(R.styleable.SuperShapeView_super_cornerRadius,
                 DEFAULT_CORNER_RADIUS));
@@ -51,7 +50,6 @@ public class SuperManager implements IShape {
         superConfig.setDashWidth(typedArray.getDimension(R.styleable.SuperShapeView_super_dashWidth,
                 DEFAULT_DASHWIDTH));
         superConfig.setDashGap(typedArray.getDimension(R.styleable.SuperShapeView_super_dashGap, DEFAULT_DASHGAP));
-
         superConfig.setTopLeftRadius(typedArray.getDimension(R.styleable.SuperShapeView_super_topLeftRadius,
                 DEFAULT_TOP_LEFT_RADIUS));
         superConfig.setTopRightRadius(typedArray.getDimension(R.styleable.SuperShapeView_super_topRightRadius,
@@ -81,7 +79,7 @@ public class SuperManager implements IShape {
     }
 
     private int dp2px(float dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources()
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, view.getContext().getResources()
                 .getDisplayMetrics());
     }
 
@@ -118,7 +116,7 @@ public class SuperManager implements IShape {
         setupGradientDrawable();
     }
 
-    public void restore(SuperConfig superConfig) {
+    private void restore(SuperConfig superConfig) {
         this.superConfig = superConfig;
         setupGradientDrawable();
     }
@@ -153,8 +151,7 @@ public class SuperManager implements IShape {
             out.writeSerializable(superConfig);
         }
 
-        public static final Parcelable.Creator<SavedState> CREATOR
-                = new Parcelable.Creator<SavedState>() {
+        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() {
             public SavedState createFromParcel(Parcel in) {
                 return new SavedState(in);
             }

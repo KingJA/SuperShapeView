@@ -1,4 +1,4 @@
-package com.kingja.supershapeview;
+package com.kingja.supershapeview.core;
 
 import android.support.annotation.ColorRes;
 
@@ -8,7 +8,7 @@ import android.support.annotation.ColorRes;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public interface IShape {
+public interface ISuperShape {
 
     public void setSolidColor(int solidColor);
 
