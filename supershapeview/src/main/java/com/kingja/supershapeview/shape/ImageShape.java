@@ -29,9 +29,14 @@ public class ImageShape implements IBuilder {
     public void setSuperConfig(SuperConfig superConfig) {
         this.superConfig = superConfig;
     }
-    public ImageShape(View view, SuperConfig superConfig) {
+
+    @Override
+    public void modifyAttr() {
+        imageView.invalidate();
+    }
+
+    public ImageShape(View view) {
         this.imageView = (ImageView) view;
-        this.superConfig = superConfig;
     }
 
     private Paint getStrokePaint() {

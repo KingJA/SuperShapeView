@@ -14,18 +14,20 @@
               android:paddingTop="12dp"
               tools:context="sample.kingja.supershapeview.MainActivity">
 
-    <!-- <com.kingja.supershapeview.view.SuperShapeImageView
-         android:scaleType="centerCrop"
-         android:src="@mipmap/hill"
-         android:layout_width="100dp"
-         android:layout_height="100dp"
-         android:layout_marginBottom="12dp"
-         app:super_cornerRadius="50dp"
-         app:super_strokeWidth="2dp"
-         app:super_strokeColor="#45a65f"/>
+    <com.kingja.supershapeview.view.SuperShapeImageView
+        android:id="@+id/ssiv"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/hill"
+        android:layout_width="100dp"
+        android:onClick="changeIvStyle"
+        android:layout_height="100dp"
+        android:layout_marginBottom="12dp"
+        app:super_cornerRadius="50dp"
+        app:super_strokeWidth="2dp"
+        app:super_strokeColor="#45a65f"/>
 
 
-     <com.kingja.supershapeview.view.SuperShapeTextView
+    <!-- <com.kingja.supershapeview.view.SuperShapeTextView
          android:id="@+id/superShapeTextView2"
          android:layout_width="40dp"
          android:layout_height="40dp"
@@ -58,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:gravity="center"
-        android:onClick="changeStyle"
+        android:onClick="changeTvStyle"
         android:padding="12dp"
         android:text="确定"
         android:textColor="#ffffff"

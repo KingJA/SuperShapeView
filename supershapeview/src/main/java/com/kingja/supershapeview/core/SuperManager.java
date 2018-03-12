@@ -20,12 +20,11 @@ import com.kingja.supershapeview.shape.IBuilder;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class SuperManager implements ISuperShape, IBuilder {
+public class SuperManager implements ISuperShape {
     private static final String TAG = "SuperManager";
     private View view;
     private SuperConfig superConfig;
     private IBuilder builder;
-    private Canvas canvas;
 
     public SuperManager(AttributeSet attrs, View view) {
         this.view = view;
@@ -38,7 +37,8 @@ public class SuperManager implements ISuperShape, IBuilder {
     }
 
     public void beSuperImageView() {
-        builder = new ImageShape(view, superConfig);
+        builder = new ImageShape(view);
+        setSuperConfig(superConfig);
     }
 
     private void obtainAttrs(AttributeSet attrs) {
@@ -76,25 +76,25 @@ public class SuperManager implements ISuperShape, IBuilder {
     @Override
     public void setSolidColor(int solidColor) {
         superConfig.setSolidColor(solidColor);
-        builder.buildShape(canvas);
+        builder.modifyAttr();
     }
 
     @Override
     public void setStrokeColor(int strokeColor) {
         superConfig.setStrokeColor(strokeColor);
-        builder.buildShape(canvas);
+        builder.modifyAttr();
     }
 
     @Override
     public void setStrokeWidth(int strokeWidth) {
         superConfig.setStrokeWidth(dp2px(strokeWidth));
-        builder.buildShape(canvas);
+        builder.modifyAttr();
     }
 
     @Override
     public void setCorner(float corner) {
         superConfig.setCornerRadius(dp2px(corner));
-        builder.buildShape(canvas);
+        builder.modifyAttr();
     }
 
     @Override
@@ -103,13 +103,13 @@ public class SuperManager implements ISuperShape, IBuilder {
         superConfig.setTopRightRadius(topRightRadius);
         superConfig.setBottomLeftRadius(bottomLeftRadius);
         superConfig.setBottomRightRadius(bottomRightRadius);
-        builder.buildShape(canvas);
+        builder.modifyAttr();
     }
 
     private void restore(SuperConfig superConfig) {
         this.superConfig = superConfig;
         setSuperConfig(superConfig);
-        buildShape(canvas);
+//        buildShape(canvas);
     }
 
     public Parcelable onSaveInstanceState(Parcelable superState) {
@@ -126,13 +126,10 @@ public class SuperManager implements ISuperShape, IBuilder {
         return ss.getSuperState();
     }
 
-    @Override
     public void buildShape(Canvas canvas) {
-        this.canvas = canvas;
         builder.buildShape(canvas);
     }
 
-    @Override
     public void setSuperConfig(SuperConfig superConfig) {
         builder.setSuperConfig(superConfig);
     }

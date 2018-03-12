@@ -1,10 +1,12 @@
 package com.kingja.supershapeview.view;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import com.kingja.supershapeview.core.ISuperShape;
 import com.kingja.supershapeview.core.SuperManager;
@@ -17,6 +19,7 @@ import com.kingja.supershapeview.core.SuperManager;
  */
 public class SuperShapeTextView extends AppCompatTextView implements ISuperShape {
 
+    private static final String TAG = "SuperShapeTextView";
     private SuperManager superManager;
 
     public SuperShapeTextView(Context context) {
@@ -37,7 +40,13 @@ public class SuperShapeTextView extends AppCompatTextView implements ISuperShape
     private void initSuperShapeView(AttributeSet attrs) {
         superManager = new SuperManager(attrs,this);
         superManager.beSuperView();
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
         superManager.buildShape(null);
+        //setBackground后会引起onDraw重绘制，因此不能再onDraw中调用buildShape，避免死循环
     }
 
     @Override

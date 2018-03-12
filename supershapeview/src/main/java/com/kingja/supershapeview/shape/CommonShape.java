@@ -46,4 +46,10 @@ public class CommonShape implements IBuilder {
         this.superConfig = superConfig;
     }
 
+    @Override
+    public void modifyAttr() {
+        Log.e(TAG, "modifyAttr: ");
+        buildShape(null);
+    }
+
 }

@@ -14,4 +14,6 @@ public interface IBuilder {
     public void buildShape( Canvas canvas);
 
     public void setSuperConfig(SuperConfig superConfig);
+
+    public void modifyAttr();
 }
