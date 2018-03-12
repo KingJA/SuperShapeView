@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.kingja.supershapeview.view.SuperShapeTextView;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeStyle(View view) {
         SuperShapeTextView superShapeTextView = (SuperShapeTextView) view;
-        superShapeTextView.setCorner(56);
+        superShapeTextView.setCorner(new Random().nextInt(10));
         superShapeTextView.setSolidColor(0xff303F9F);
         superShapeTextView.setStrokeColor(getResources().getColor(R.color.colorAccent));
         superShapeTextView.setStrokeWidth(5);

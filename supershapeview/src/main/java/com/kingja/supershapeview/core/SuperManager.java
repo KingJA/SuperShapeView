@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -20,6 +21,7 @@ import com.kingja.supershapeview.shape.IBuilder;
  * Email:kingjavip@gmail.com
  */
 public class SuperManager implements ISuperShape, IBuilder {
+    private static final String TAG = "SuperManager";
     private View view;
     private SuperConfig superConfig;
     private IBuilder builder;
@@ -31,8 +33,8 @@ public class SuperManager implements ISuperShape, IBuilder {
     }
 
     public void beSuperView() {
-        builder = new CommonShape(view, superConfig);
-
+        builder = new CommonShape(view);
+        setSuperConfig(superConfig);
     }
 
     public void beSuperImageView() {
@@ -106,17 +108,20 @@ public class SuperManager implements ISuperShape, IBuilder {
 
     private void restore(SuperConfig superConfig) {
         this.superConfig = superConfig;
-        builder.buildShape(canvas);
+        setSuperConfig(superConfig);
+        buildShape(canvas);
     }
 
     public Parcelable onSaveInstanceState(Parcelable superState) {
         SavedState ss = new SavedState(superState);
         ss.superConfig = superConfig;
+        Log.e(TAG, "onSaveInstanceState: " + ss.superConfig.getCornerRadius());
         return ss;
     }
 
     public Parcelable onRestoreInstanceState(Parcelable state) {
         SavedState ss = (SavedState) state;
+        Log.e(TAG, "onRestoreInstanceState: " + ss.superConfig.getCornerRadius());
         restore(ss.superConfig);
         return ss.getSuperState();
     }
@@ -125,6 +130,11 @@ public class SuperManager implements ISuperShape, IBuilder {
     public void buildShape(Canvas canvas) {
         this.canvas = canvas;
         builder.buildShape(canvas);
+    }
+
+    @Override
+    public void setSuperConfig(SuperConfig superConfig) {
+        builder.setSuperConfig(superConfig);
     }
 
     static class SavedState extends View.BaseSavedState {

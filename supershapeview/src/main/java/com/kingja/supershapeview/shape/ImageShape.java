@@ -23,8 +23,12 @@ import com.kingja.supershapeview.core.SuperConfig;
  */
 public class ImageShape implements IBuilder {
     private final ImageView imageView;
-    private final SuperConfig superConfig;
+    private SuperConfig superConfig;
 
+    @Override
+    public void setSuperConfig(SuperConfig superConfig) {
+        this.superConfig = superConfig;
+    }
     public ImageShape(View view, SuperConfig superConfig) {
         this.imageView = (ImageView) view;
         this.superConfig = superConfig;
