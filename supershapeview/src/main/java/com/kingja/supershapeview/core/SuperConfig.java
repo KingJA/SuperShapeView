@@ -9,6 +9,17 @@ import java.io.Serializable;
  * Email:kingjavip@gmail.com
  */
 public class SuperConfig implements Serializable {
+    public static final float DEFAULT_CORNER_RADIUS = 0f;
+    public static final float DEFAULT_STROKE_WIDTH = 0f;
+    public static final int DEFAULT_STROKE_COLOR = 0;
+    public static final int DEFAULT_SOLID_COLOR = 0;
+    public static final float DEFAULT_DASHWIDTH = 0f;
+    public static final float DEFAULT_DASHGAP = 0f;
+    public static final float DEFAULT_TOP_LEFT_RADIUS = 0f;
+    public static final float DEFAULT_TOP_RIGHT_RADIUS = 0f;
+    public static final float DEFAULT_BOTTOM_LEFT_RADIUS = 0f;
+    public static final float DEFAULT_BOTTOM_IGHT_RADIUS = 0f;
+    
     private float cornerRadius;
     private int strokeColor;
     private int solidColor;

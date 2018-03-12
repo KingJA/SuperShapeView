@@ -1,14 +1,17 @@
 package com.kingja.supershapeview.core;
 
 import android.content.res.TypedArray;
-import android.graphics.drawable.GradientDrawable;
+import android.graphics.Canvas;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.kingja.supershapeview.shape.CommonShape;
+import com.kingja.supershapeview.shape.ImageShape;
 import com.kingja.supershapeview.R;
+import com.kingja.supershapeview.shape.IBuilder;
 
 /**
  * Description:TODO
@@ -16,67 +19,52 @@ import com.kingja.supershapeview.R;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class SuperManager implements ISuperShape {
-    private static final float DEFAULT_CORNER_RADIUS = 0f;
-    private static final float DEFAULT_STROKE_WIDTH = 0f;
-    private static final int DEFAULT_STROKE_COLOR = 0;
-    private static final int DEFAULT_SOLID_COLOR = 0;
-    private static final float DEFAULT_DASHWIDTH = 0f;
-    private static final float DEFAULT_DASHGAP = 0f;
-    private static final float DEFAULT_TOP_LEFT_RADIUS = 0f;
-    private static final float DEFAULT_TOP_RIGHT_RADIUS = 0f;
-    private static final float DEFAULT_BOTTOM_LEFT_RADIUS = 0f;
-    private static final float DEFAULT_BOTTOM_IGHT_RADIUS = 0f;
+public class SuperManager implements ISuperShape, IBuilder {
     private View view;
     private SuperConfig superConfig;
+    private IBuilder builder;
+    private Canvas canvas;
 
-    public void beSuperView(AttributeSet attrs, View view) {
+    public SuperManager(AttributeSet attrs, View view) {
         this.view = view;
         obtainAttrs(attrs);
-        setupGradientDrawable();
+    }
+
+    public void beSuperView() {
+        builder = new CommonShape(view, superConfig);
+
+    }
+
+    public void beSuperImageView() {
+        builder = new ImageShape(view, superConfig);
     }
 
     private void obtainAttrs(AttributeSet attrs) {
         TypedArray typedArray = view.getContext().obtainStyledAttributes(attrs, R.styleable.SuperShapeView);
         superConfig = new SuperConfig();
         superConfig.setCornerRadius(typedArray.getDimension(R.styleable.SuperShapeView_super_cornerRadius,
-                DEFAULT_CORNER_RADIUS));
+                SuperConfig.DEFAULT_CORNER_RADIUS));
         superConfig.setStrokeColor(typedArray.getColor(R.styleable.SuperShapeView_super_strokeColor,
-                DEFAULT_STROKE_COLOR));
+                SuperConfig.DEFAULT_STROKE_COLOR));
         superConfig.setSolidColor(typedArray.getColor(R.styleable.SuperShapeView_super_solidColor,
-                DEFAULT_SOLID_COLOR));
+                SuperConfig.DEFAULT_SOLID_COLOR));
         superConfig.setStrokeWidth((int) typedArray.getDimension(R.styleable.SuperShapeView_super_strokeWidth,
-                DEFAULT_STROKE_WIDTH));
+                SuperConfig.DEFAULT_STROKE_WIDTH));
         superConfig.setDashWidth(typedArray.getDimension(R.styleable.SuperShapeView_super_dashWidth,
-                DEFAULT_DASHWIDTH));
-        superConfig.setDashGap(typedArray.getDimension(R.styleable.SuperShapeView_super_dashGap, DEFAULT_DASHGAP));
+                SuperConfig.DEFAULT_DASHWIDTH));
+        superConfig.setDashGap(typedArray.getDimension(R.styleable.SuperShapeView_super_dashGap, SuperConfig
+                .DEFAULT_DASHGAP));
         superConfig.setTopLeftRadius(typedArray.getDimension(R.styleable.SuperShapeView_super_topLeftRadius,
-                DEFAULT_TOP_LEFT_RADIUS));
+                SuperConfig.DEFAULT_TOP_LEFT_RADIUS));
         superConfig.setTopRightRadius(typedArray.getDimension(R.styleable.SuperShapeView_super_topRightRadius,
-                DEFAULT_TOP_RIGHT_RADIUS));
+                SuperConfig.DEFAULT_TOP_RIGHT_RADIUS));
         superConfig.setBottomLeftRadius(typedArray.getDimension(R.styleable.SuperShapeView_super_bottomLeftRadius,
-                DEFAULT_BOTTOM_LEFT_RADIUS));
+                SuperConfig.DEFAULT_BOTTOM_LEFT_RADIUS));
         superConfig.setBottomRightRadius(typedArray.getDimension(R.styleable.SuperShapeView_super_bottomRightRadius,
-                DEFAULT_BOTTOM_IGHT_RADIUS));
+                SuperConfig.DEFAULT_BOTTOM_IGHT_RADIUS));
         typedArray.recycle();
     }
 
-    private void setupGradientDrawable() {
-        GradientDrawable mGradientDrawable = new GradientDrawable();
-        mGradientDrawable.setColor(superConfig.getSolidColor());
-        mGradientDrawable.setStroke(superConfig.getStrokeWidth(), superConfig.getStrokeColor(), superConfig
-                .getDashWidth(), superConfig.getDashGap());
-        float[] radius = {superConfig.getTopLeftRadius(), superConfig.getTopLeftRadius(), superConfig
-                .getTopRightRadius(), superConfig.getTopRightRadius(), superConfig.getBottomRightRadius(),
-                superConfig.getBottomRightRadius(), superConfig.getBottomLeftRadius(), superConfig
-                .getBottomLeftRadius()};
-        if (superConfig.getCornerRadius() == DEFAULT_CORNER_RADIUS) {
-            mGradientDrawable.setCornerRadii(radius);
-        } else {
-            mGradientDrawable.setCornerRadius(superConfig.getCornerRadius());
-        }
-        view.setBackground(mGradientDrawable);
-    }
 
     private int dp2px(float dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, view.getContext().getResources()
@@ -86,25 +74,25 @@ public class SuperManager implements ISuperShape {
     @Override
     public void setSolidColor(int solidColor) {
         superConfig.setSolidColor(solidColor);
-        setupGradientDrawable();
+        builder.buildShape(canvas);
     }
 
     @Override
     public void setStrokeColor(int strokeColor) {
         superConfig.setStrokeColor(strokeColor);
-        setupGradientDrawable();
+        builder.buildShape(canvas);
     }
 
     @Override
     public void setStrokeWidth(int strokeWidth) {
         superConfig.setStrokeWidth(dp2px(strokeWidth));
-        setupGradientDrawable();
+        builder.buildShape(canvas);
     }
 
     @Override
     public void setCorner(float corner) {
         superConfig.setCornerRadius(dp2px(corner));
-        setupGradientDrawable();
+        builder.buildShape(canvas);
     }
 
     @Override
@@ -113,12 +101,12 @@ public class SuperManager implements ISuperShape {
         superConfig.setTopRightRadius(topRightRadius);
         superConfig.setBottomLeftRadius(bottomLeftRadius);
         superConfig.setBottomRightRadius(bottomRightRadius);
-        setupGradientDrawable();
+        builder.buildShape(canvas);
     }
 
     private void restore(SuperConfig superConfig) {
         this.superConfig = superConfig;
-        setupGradientDrawable();
+        builder.buildShape(canvas);
     }
 
     public Parcelable onSaveInstanceState(Parcelable superState) {
@@ -131,6 +119,12 @@ public class SuperManager implements ISuperShape {
         SavedState ss = (SavedState) state;
         restore(ss.superConfig);
         return ss.getSuperState();
+    }
+
+    @Override
+    public void buildShape(Canvas canvas) {
+        this.canvas = canvas;
+        builder.buildShape(canvas);
     }
 
     static class SavedState extends View.BaseSavedState {
@@ -152,10 +146,12 @@ public class SuperManager implements ISuperShape {
         }
 
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() {
+            @Override
             public SavedState createFromParcel(Parcel in) {
                 return new SavedState(in);
             }
 
+            @Override
             public SavedState[] newArray(int size) {
                 return new SavedState[size];
             }

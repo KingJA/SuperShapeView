@@ -35,8 +35,9 @@ public class SuperShapeTextView extends AppCompatTextView implements ISuperShape
     }
 
     private void initSuperShapeView(AttributeSet attrs) {
-        superManager = new SuperManager();
-        superManager.beSuperView(attrs, this);
+        superManager = new SuperManager(attrs,this);
+        superManager.beSuperView();
+        superManager.buildShape(null);
     }
 
     @Override

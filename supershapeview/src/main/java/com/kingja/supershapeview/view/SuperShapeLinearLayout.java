@@ -31,6 +31,8 @@ public class SuperShapeLinearLayout extends LinearLayout {
 
 
     private void initSuperShapeView(AttributeSet attrs) {
-        new SuperManager().beSuperView(attrs, this);
+        SuperManager  superManager = new SuperManager(attrs,this);
+        superManager.beSuperView();
+        superManager.buildShape(null);
     }
 }
