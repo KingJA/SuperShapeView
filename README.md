@@ -20,7 +20,7 @@ A smart custom view support shapes for TextView ,EditView ,instead of shape.xml.
 
 ## Gradle
 ```java
- compile 'com.kingja.supershapeview:supershapeview:1.1.1'
+ compile 'com.kingja.supershapeview:supershapeview:1.2.0'
 ```
 
 ## Usage
@@ -50,7 +50,9 @@ A smart custom view support shapes for TextView ,EditView ,instead of shape.xml.
 ```
 
 ## Changelog
-
+**v1.2.0**
+- add API for setting attrs
+- add ImageView Shape (SuperShapeImageView)
 **v1.1.1**
 - Initial release 
 
