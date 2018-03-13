@@ -8,51 +8,118 @@
               android:focusableInTouchMode="true"
               android:gravity="center"
               android:orientation="vertical"
-              android:paddingBottom="12dp"
-              android:paddingLeft="24dp"
-              android:paddingRight="24dp"
-              android:paddingTop="12dp"
+              android:padding="12dp"
               tools:context="sample.kingja.supershapeview.MainActivity">
 
-    <com.kingja.supershapeview.view.SuperShapeImageView
-        android:id="@+id/ssiv"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/hill"
-        android:layout_width="100dp"
-        android:onClick="changeIvStyle"
-        android:layout_height="100dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        app:super_cornerRadius="50dp"
-        app:super_strokeWidth="2dp"
-        app:super_strokeColor="#45a65f"/>
+        android:gravity="center">
 
+        <com.kingja.supershapeview.view.SuperShapeImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="changeIvStyle"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/jason"
+            app:super_cornerRadius="8dp"
+            app:super_strokeColor="#363636"
+            app:super_strokeWidth="2dp"/>
 
-    <!-- <com.kingja.supershapeview.view.SuperShapeTextView
-         android:id="@+id/superShapeTextView2"
-         android:layout_width="40dp"
-         android:layout_height="40dp"
-         android:layout_marginBottom="12dp"
-         android:gravity="center"
-         android:text="添加"
-         android:textColor="#ffffff"
-         android:textSize="12sp"
-         app:super_cornerRadius="25dp"
-         app:super_solidColor="#45a65f"/>
+        <com.kingja.supershapeview.view.SuperShapeImageView
+            android:id="@+id/ssiv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:onClick="changeIvStyle"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/taylor"
+            app:super_cornerRadius="50dp"
+            app:super_strokeColor="#000000"
+            app:super_strokeWidth="2dp"/>
 
-     <com.kingja.supershapeview.view.SuperShapeTextView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_marginBottom="12dp"
-         android:gravity="center"
-         android:paddingBottom="4dp"
-         android:paddingLeft="12dp"
-         android:paddingRight="12dp"
-         android:paddingTop="4dp"
-         android:text="关注"
-         android:textColor="#ffffff"
-         android:textSize="12sp"
-         app:super_cornerRadius="4dp"
-         app:super_solidColor="#4d76d4"/>-->
+        <com.kingja.supershapeview.view.SuperShapeImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:onClick="changeIvStyle"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/car"
+            app:super_cornerRadius="2dp"
+            app:super_dashGap="4dp"
+            app:super_dashWidth="4dp"
+            app:super_strokeColor="#420d5b"
+            app:super_strokeWidth="2dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <com.kingja.supershapeview.view.SuperShapeTextView
+            android:id="@+id/superShapeTextView2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="添加"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:super_cornerRadius="25dp"
+            app:super_solidColor="#45a65f"/>
+
+        <com.kingja.supershapeview.view.SuperShapeTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="4dp"
+            android:text="关注"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:super_cornerRadius="4dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            app:super_solidColor="#4d76d4"/>
+
+        <com.kingja.supershapeview.view.SuperShapeLinearLayout
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:super_cornerRadius="20dp"
+            app:super_solidColor="#e4261c"
+            app:super_strokeWidth="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:text="¥"
+                android:textColor="#ffffff"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:text="27"
+                android:textColor="#ffffff"
+                android:textSize="30sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="起"
+                android:textColor="#ffffff"/>
+
+        </com.kingja.supershapeview.view.SuperShapeLinearLayout>
+    </LinearLayout>
+
 
     <com.kingja.supershapeview.view.SuperShapeTextView
         android:id="@+id/sstv"
@@ -68,89 +135,58 @@
         app:super_solidColor="#b143ba"/>
 
 
-    <!--  <com.kingja.supershapeview.view.SuperShapeTextView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="12dp"
-          android:gravity="center"
-          android:padding="12dp"
-          android:text="提交"
-          android:textColor="#2360b6"
-          app:super_cornerRadius="56dp"
-          app:super_strokeColor="#2360b6"
-          app:super_strokeWidth="1dp"/>
+    <com.kingja.supershapeview.view.SuperShapeTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="提交"
+        android:textColor="#2360b6"
+        app:super_cornerRadius="56dp"
+        app:super_strokeColor="#2360b6"
+        app:super_strokeWidth="1dp"/>
 
-      <com.kingja.supershapeview.view.SuperShapeTextView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="12dp"
-          android:gravity="center"
-          android:padding="12dp"
-          android:text="更多"
-          android:textColor="#d2490e"
-          app:super_dashGap="2dp"
-          app:super_dashWidth="2dp"
-          app:super_strokeColor="#d2490e"
-          app:super_strokeWidth="1dp"/>
+    <com.kingja.supershapeview.view.SuperShapeTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="更多"
+        android:textColor="#d2490e"
+        app:super_dashGap="2dp"
+        app:super_dashWidth="2dp"
+        app:super_strokeColor="#d2490e"
+        app:super_strokeWidth="1dp"/>
 
-      <com.kingja.supershapeview.view.SuperShapeTextView
-          android:id="@+id/superShapeTextView"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="12dp"
-          android:gravity="center"
-          android:padding="12dp"
-          android:text="加入"
-          android:textColor="#ffffff"
-          app:super_bottomLeftRadius="16dp"
-          app:super_bottomRightRadius="4dp"
-          app:super_solidColor="#e95a55"
-          app:super_topLeftRadius="4dp"
-          app:super_topRightRadius="16dp"/>
+    <com.kingja.supershapeview.view.SuperShapeTextView
+        android:id="@+id/superShapeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="加入"
+        android:textColor="#ffffff"
+        app:super_bottomLeftRadius="16dp"
+        app:super_bottomRightRadius="4dp"
+        app:super_solidColor="#e95a55"
+        app:super_topLeftRadius="4dp"
+        app:super_topRightRadius="16dp"/>
 
 
-      <com.kingja.supershapeview.view.SuperShapeEditText
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="12dp"
-          android:hint="请输入商品名称"
-          android:padding="12dp"
-          android:textColorHint="#919191"
-          android:textSize="12sp"
-          app:super_cornerRadius="4dp"
-          app:super_solidColor="#dadada"
-          app:super_strokeWidth="1dp"/>
+    <com.kingja.supershapeview.view.SuperShapeEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:hint="请输入商品名称"
+        android:padding="12dp"
+        android:textColorHint="#919191"
+        android:textSize="12sp"
+        app:super_cornerRadius="4dp"
+        app:super_solidColor="#dadada"
+        app:super_strokeWidth="1dp"/>
 
-      <com.kingja.supershapeview.view.SuperShapeLinearLayout
-          android:layout_width="120dp"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="12dp"
-          android:gravity="center_horizontal"
-          android:orientation="horizontal"
-          app:super_cornerRadius="20dp"
-          app:super_solidColor="#e4261c"
-          app:super_strokeWidth="2dp">
 
-          <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginRight="4dp"
-              android:text="¥"
-              android:textColor="#ffffff"/>
-
-          <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginRight="4dp"
-              android:text="27"
-              android:textColor="#ffffff"
-              android:textSize="30sp"/>
-
-          <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="起"
-              android:textColor="#ffffff"/>
-
-      </com.kingja.supershapeview.view.SuperShapeLinearLayout>-->
 </LinearLayout>

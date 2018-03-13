@@ -1,6 +1,7 @@
 package com.kingja.supershapeview.view;
 
 import android.content.Context;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
@@ -14,6 +15,11 @@ import com.kingja.supershapeview.core.SuperManager;
  * Email:kingjavip@gmail.com
  */
 public class SuperShapeFrameLayout extends FrameLayout {
+    private SuperManager superManager;
+
+    public SuperManager getSuperManager() {
+        return superManager;
+    }
 
     public SuperShapeFrameLayout(Context context) {
         super(context);
@@ -30,8 +36,23 @@ public class SuperShapeFrameLayout extends FrameLayout {
     }
 
     private void initSuperShapeView(AttributeSet attrs) {
-        SuperManager  superManager = new SuperManager(attrs,this);
+        superManager = new SuperManager(attrs, this);
         superManager.beSuperView();
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
         superManager.buildShape(null);
+    }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        return superManager.onSaveInstanceState(super.onSaveInstanceState());
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        super.onRestoreInstanceState(superManager.onRestoreInstanceState(state));
     }
 }

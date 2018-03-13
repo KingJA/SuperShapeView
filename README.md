@@ -26,7 +26,7 @@ A smart custom view support shapes for TextView ,EditView ,instead of shape.xml.
 ## Usage
 * TextView
 ```xml
-<SuperSuperShapeTextView
+<com.kingja.supershapeview.view.SuperSuperShapeTextView
         android:textColor="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

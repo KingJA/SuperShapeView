@@ -3,8 +3,10 @@ package com.kingja.supershapeview.shape;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PathEffect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
@@ -44,6 +46,9 @@ public class ImageShape implements IBuilder {
         strokePaint.setStyle(Paint.Style.STROKE);
         strokePaint.setColor(superConfig.getStrokeColor());
         strokePaint.setStrokeWidth(superConfig.getStrokeWidth());
+        PathEffect effects = new DashPathEffect(new float[]{superConfig.getDashWidth(), superConfig.getDashGap(),
+                superConfig.getDashWidth(), superConfig.getDashGap()}, 0);
+        strokePaint.setPathEffect(effects);
         return strokePaint;
     }
 

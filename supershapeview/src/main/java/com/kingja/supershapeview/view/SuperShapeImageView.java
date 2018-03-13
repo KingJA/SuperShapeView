@@ -8,7 +8,6 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import com.kingja.supershapeview.core.ISuperShape;
 import com.kingja.supershapeview.core.SuperManager;
 
 /**
@@ -17,7 +16,7 @@ import com.kingja.supershapeview.core.SuperManager;
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
-public class SuperShapeImageView extends AppCompatImageView implements ISuperShape {
+public class SuperShapeImageView extends AppCompatImageView {
 
     private static final String TAG = "SuperShapeImageView";
     private SuperManager superManager;
@@ -49,31 +48,8 @@ public class SuperShapeImageView extends AppCompatImageView implements ISuperSha
         superManager.buildShape(canvas);
     }
 
-    @Override
-    public void setSolidColor(int solidColor) {
-        superManager.setSolidColor(solidColor);
-    }
-
-
-    @Override
-    public void setStrokeColor(int strokeColor) {
-        superManager.setStrokeColor(strokeColor);
-    }
-
-
-    @Override
-    public void setStrokeWidth(int strokeWidth) {
-        superManager.setStrokeWidth(strokeWidth);
-    }
-
-    @Override
-    public void setCorner(float corner) {
-        superManager.setCorner(corner);
-    }
-
-    @Override
-    public void setCorner(int leftTopCorner, int rightTopCorner, int rightBottomCorner, int leftBottomCorner) {
-        superManager.setCorner(leftTopCorner, rightTopCorner, rightBottomCorner, leftBottomCorner);
+    public SuperManager getSuperManager() {
+        return superManager;
     }
 
     @Override
