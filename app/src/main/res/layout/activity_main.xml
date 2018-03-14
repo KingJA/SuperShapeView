@@ -164,6 +164,7 @@
         android:textColor="#d2490e"
         app:super_dashGap="2dp"
         app:super_dashWidth="2dp"
+        app:super_solidColor="#ffffff"
         app:super_strokeColor="#d2490e"
         app:super_strokeWidth="1dp"/>
 
@@ -212,13 +213,13 @@
         app:super_strokeWidth="1dp">
 
         <EditText
-            android:textSize="12sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="12dp"
             android:layout_weight="1"
             android:background="@null"
-            android:hint="请输入商品名称"/>
+            android:hint="请输入商品名称"
+            android:textSize="12sp"/>
 
         <ImageView
             android:layout_width="24dp"
