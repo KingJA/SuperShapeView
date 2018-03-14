@@ -4,6 +4,9 @@ A smart custom view support shapes for TextView ,EditView ,ImageView and so on,i
 ## Preview
 <div align="center"><img src="imgs/super_shape_view.png"/></div>
 
+## Download Demo
+![](imgs/qcode_1.2.0.png)
+
 ## Custom attribute
 | attribute | format | example  |
 | :------------- |:-------------| :-----|
@@ -24,8 +27,8 @@ A smart custom view support shapes for TextView ,EditView ,ImageView and so on,i
 ```
 
 ## Usage
-##### in xml
-* Image
+##### Build in xml
+* `Image Shape`
 ```xml
 <com.kingja.supershapeview.view.SuperShapeImageView
     android:id="@+id/ssiv"
@@ -40,7 +43,7 @@ A smart custom view support shapes for TextView ,EditView ,ImageView and so on,i
     app:super_strokeColor="#000000"
     app:super_strokeWidth="2dp"/>
 ```
-* others
+* `Others`
 ```xml
 <com.kingja.supershapeview.view.SuperShapeTextView
     android:layout_width="match_parent"
@@ -56,7 +59,7 @@ A smart custom view support shapes for TextView ,EditView ,ImageView and so on,i
     app:super_strokeWidth="1dp"/>
 ```
 
-##### modify attrs dynamically
+##### Modify attrs dynamically
 ```java
 SuperShapeTextView superShapeTextView = (SuperShapeTextView) view;
 SuperManager superManager = superShapeTextView.getSuperManager();
