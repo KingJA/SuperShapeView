@@ -9,8 +9,6 @@ android {
         targetSdkVersion 26
         versionCode 20180314
         versionName "1.2.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
     buildTypes {
         release {
