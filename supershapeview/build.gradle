@@ -35,7 +35,7 @@ publish {
     artifactId = 'supershapeview'
     userOrg = 'kingja'
     groupId = 'com.kingja.supershapeview'
-    publishVersion = '1.1.2'
+    publishVersion = '1.2.0'
     desc = 'A smart switchable button,support multiple tabs.'
     website ='A smart custom view support shapes for TextView ,EditView ,instead of shape.xml.'
 }
