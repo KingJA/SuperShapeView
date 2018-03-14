@@ -5,14 +5,13 @@ import android.graphics.Canvas;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.kingja.supershapeview.shape.CommonShape;
-import com.kingja.supershapeview.shape.ImageShape;
 import com.kingja.supershapeview.R;
+import com.kingja.supershapeview.shape.CommonShape;
 import com.kingja.supershapeview.shape.IBuilder;
+import com.kingja.supershapeview.shape.ImageShape;
 
 /**
  * Description:TODO
@@ -21,7 +20,6 @@ import com.kingja.supershapeview.shape.IBuilder;
  * Email:kingjavip@gmail.com
  */
 public class SuperManager implements ISuperShape {
-    private static final String TAG = "SuperManager";
     private View view;
     private SuperConfig superConfig;
     private IBuilder builder;
@@ -98,7 +96,24 @@ public class SuperManager implements ISuperShape {
     }
 
     @Override
+    public void setDashWidth(float dashWidth) {
+        superConfig.setDashWidth(dp2px(dashWidth));
+        builder.modifyAttr();
+    }
+
+    @Override
+    public void setDashGap(float dashGap) {
+        superConfig.setDashGap(dp2px(dashGap));
+        builder.modifyAttr();
+    }
+
+    @Override
     public void setCorner(int topLeftRadius, int topRightRadius, int bottomRightRadius, int bottomLeftRadius) {
+        if (topLeftRadius != SuperConfig.DEFAULT_CORNER_RADIUS || topRightRadius != SuperConfig.DEFAULT_CORNER_RADIUS
+                || bottomRightRadius != SuperConfig.DEFAULT_CORNER_RADIUS || bottomLeftRadius != SuperConfig
+                .DEFAULT_CORNER_RADIUS) {
+            superConfig.setCornerRadius(0);
+        }
         superConfig.setTopLeftRadius(topLeftRadius);
         superConfig.setTopRightRadius(topRightRadius);
         superConfig.setBottomLeftRadius(bottomLeftRadius);
@@ -109,19 +124,16 @@ public class SuperManager implements ISuperShape {
     private void restore(SuperConfig superConfig) {
         this.superConfig = superConfig;
         setSuperConfig(superConfig);
-//        buildShape(canvas);
     }
 
     public Parcelable onSaveInstanceState(Parcelable superState) {
         SavedState ss = new SavedState(superState);
         ss.superConfig = superConfig;
-        Log.e(TAG, "onSaveInstanceState: " + ss.superConfig.getCornerRadius());
         return ss;
     }
 
     public Parcelable onRestoreInstanceState(Parcelable state) {
         SavedState ss = (SavedState) state;
-        Log.e(TAG, "onRestoreInstanceState: " + ss.superConfig.getCornerRadius());
         restore(ss.superConfig);
         return ss.getSuperState();
     }

@@ -20,6 +20,7 @@ public class SuperShapeLinearLayout extends LinearLayout {
     public SuperManager getSuperManager() {
         return superManager;
     }
+
     public SuperShapeLinearLayout(Context context) {
         super(context);
     }
@@ -33,7 +34,6 @@ public class SuperShapeLinearLayout extends LinearLayout {
         super(context, attrs, defStyleAttr);
         initSuperShapeView(attrs);
     }
-
 
     private void initSuperShapeView(AttributeSet attrs) {
         superManager = new SuperManager(attrs, this);

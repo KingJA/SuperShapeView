@@ -18,7 +18,6 @@ import com.kingja.supershapeview.core.SuperManager;
  */
 public class SuperShapeImageView extends AppCompatImageView {
 
-    private static final String TAG = "SuperShapeImageView";
     private SuperManager superManager;
 
     public SuperShapeImageView(Context context) {
@@ -36,7 +35,6 @@ public class SuperShapeImageView extends AppCompatImageView {
     }
 
     private void initSuperShapeView(AttributeSet attrs) {
-        Log.e(TAG, "initSuperShapeView: ");
         superManager = new SuperManager(attrs, this);
         superManager.beSuperImageView();
 
@@ -44,7 +42,6 @@ public class SuperShapeImageView extends AppCompatImageView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Log.e(TAG, "onDraw: ");
         superManager.buildShape(canvas);
     }
 

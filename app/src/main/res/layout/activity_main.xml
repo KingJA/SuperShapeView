@@ -23,9 +23,7 @@
             android:onClick="changeIvStyle"
             android:scaleType="centerCrop"
             android:src="@mipmap/jason"
-            app:super_cornerRadius="8dp"
-            app:super_strokeColor="#363636"
-            app:super_strokeWidth="2dp"/>
+            app:super_cornerRadius="50dp"/>
 
         <com.kingja.supershapeview.view.SuperShapeImageView
             android:id="@+id/ssiv"
@@ -36,9 +34,11 @@
             android:onClick="changeIvStyle"
             android:scaleType="centerCrop"
             android:src="@mipmap/taylor"
-            app:super_cornerRadius="50dp"
-            app:super_strokeColor="#000000"
-            app:super_strokeWidth="2dp"/>
+            app:super_dashGap="3dp"
+            app:super_dashWidth="1dp"
+            app:super_cornerRadius="16dp"
+            app:super_strokeColor="@color/colorAccent"
+            app:super_strokeWidth="6dp"/>
 
         <com.kingja.supershapeview.view.SuperShapeImageView
             android:layout_width="100dp"
@@ -46,10 +46,9 @@
             android:onClick="changeIvStyle"
             android:scaleType="centerCrop"
             android:src="@mipmap/car"
-            app:super_dashGap="4dp"
-            app:super_dashWidth="4dp"
-            app:super_strokeColor="#420d5b"
+            app:super_strokeColor="#000000"
             app:super_strokeWidth="2dp"
+            app:super_bottomRightRadius="20dp"
             app:super_topLeftRadius="20dp"/>
 
     </LinearLayout>
@@ -134,7 +133,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:gravity="center"
-        android:onClick="changeTvStyle"
         android:padding="12dp"
         android:text="确定"
         android:textColor="#ffffff"
@@ -185,6 +183,7 @@
 
 
     <com.kingja.supershapeview.view.SuperShapeEditText
+        android:id="@+id/sset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"

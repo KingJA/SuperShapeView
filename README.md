@@ -56,14 +56,17 @@ A smart custom view support shapes for TextView ,EditView ,ImageView and so on,i
     app:super_strokeWidth="1dp"/>
 ```
 
-##### set attrs in java
+##### modify attrs dynamically
 ```java
 SuperShapeTextView superShapeTextView = (SuperShapeTextView) view;
 SuperManager superManager = superShapeTextView.getSuperManager();
-superManager.setCorner(20);//DP
 superManager.setSolidColor(0xff303F9F);
 superManager.setStrokeColor(getResources().getColor(R.color.colorAccent));
+superManager.setCorner(20);//DP
 superManager.setStrokeWidth(2);//DP
+superManager.setDashGap(2);//DP
+superManager.setDashWidth(2);//DP
+superManager.setCorner(10,6,10,6);
 ...
 ```
 
@@ -71,6 +74,7 @@ superManager.setStrokeWidth(2);//DP
 **v1.2.0**
 - add API for setting attrs
 - add ImageView Shape (SuperShapeImageView)
+
 **v1.1.1**
 - Initial release 
 

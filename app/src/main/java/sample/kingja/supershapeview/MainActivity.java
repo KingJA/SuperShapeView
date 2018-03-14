@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.kingja.supershapeview.core.SuperManager;
+import com.kingja.supershapeview.view.SuperShapeEditText;
 import com.kingja.supershapeview.view.SuperShapeImageView;
 import com.kingja.supershapeview.view.SuperShapeTextView;
 
@@ -18,20 +19,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void changeTvStyle(View view) {
-        SuperShapeTextView superShapeTextView = (SuperShapeTextView) view;
-        SuperManager superManager = superShapeTextView.getSuperManager();
-        superManager.setCorner(new Random().nextInt(20));
-        superManager.setSolidColor(0xff303F9F);
-        superManager.setStrokeColor(getResources().getColor(R.color.colorAccent));
-        superManager.setStrokeWidth(new Random().nextInt(4));
-    }
-
     public void changeIvStyle(View view) {
         SuperShapeImageView superShapeImageView = (SuperShapeImageView) view;
         SuperManager superManager = superShapeImageView.getSuperManager();
-        superManager.setCorner(new Random().nextInt(20));
         superManager.setStrokeColor(getResources().getColor(R.color.colorAccent));
         superManager.setStrokeWidth(new Random().nextInt(6));
+        superManager.setDashGap(new Random().nextInt(6));
+        superManager.setDashWidth(new Random().nextInt(6));
+        superManager.setCorner(new Random().nextInt(10), new Random().nextInt(20), new Random().nextInt(30), new
+                Random().nextInt(50));
+//        superManager.setCorner(new Random().nextInt(20));
     }
+
 }
