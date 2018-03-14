@@ -92,10 +92,18 @@ public class ImageShape implements IBuilder {
         return bitmap;
     }
 
-
     private Path getPath() {
         Path path = new Path();
-        path.addRoundRect(getRectF(), superConfig.getCornerRadius(), superConfig.getCornerRadius(), Path.Direction.CW);
+        float[] radius = {superConfig.getTopLeftRadius(), superConfig.getTopLeftRadius(), superConfig
+                .getTopRightRadius(), superConfig.getTopRightRadius(), superConfig.getBottomRightRadius(),
+                superConfig.getBottomRightRadius(), superConfig.getBottomLeftRadius(), superConfig
+                .getBottomLeftRadius()};
+        if (superConfig.getCornerRadius() == SuperConfig.DEFAULT_CORNER_RADIUS) {
+            path.addRoundRect(getRectF(), radius, Path.Direction.CW);
+        } else {
+            path.addRoundRect(getRectF(), superConfig.getCornerRadius(), superConfig.getCornerRadius(), Path
+                    .Direction.CW);
+        }
         return path;
     }
 

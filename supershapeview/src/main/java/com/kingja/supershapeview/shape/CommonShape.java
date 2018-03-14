@@ -2,7 +2,6 @@ package com.kingja.supershapeview.shape;
 
 import android.graphics.Canvas;
 import android.graphics.drawable.GradientDrawable;
-import android.util.Log;
 import android.view.View;
 
 import com.kingja.supershapeview.core.SuperConfig;
@@ -14,8 +13,7 @@ import com.kingja.supershapeview.core.SuperConfig;
  * Email:kingjavip@gmail.com
  */
 public class CommonShape implements IBuilder {
-    private static final String TAG = "CommonShape";
-    private final View view;
+    private View view;
     private SuperConfig superConfig;
 
     public CommonShape(View view) {
@@ -25,7 +23,6 @@ public class CommonShape implements IBuilder {
     @Override
     public void buildShape(Canvas canvas) {
         GradientDrawable mGradientDrawable = new GradientDrawable();
-        Log.e(TAG, "buildShape: " + superConfig.getCornerRadius());
         mGradientDrawable.setColor(superConfig.getSolidColor());
         mGradientDrawable.setStroke(superConfig.getStrokeWidth(), superConfig.getStrokeColor(), superConfig
                 .getDashWidth(), superConfig.getDashGap());
@@ -48,8 +45,6 @@ public class CommonShape implements IBuilder {
 
     @Override
     public void modifyAttr() {
-        Log.e(TAG, "modifyAttr: ");
         buildShape(null);
     }
-
 }
