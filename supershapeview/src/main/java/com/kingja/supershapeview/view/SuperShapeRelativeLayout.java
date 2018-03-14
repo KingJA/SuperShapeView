@@ -1,9 +1,12 @@
-package com.kingja.supershapeview;
+package com.kingja.supershapeview.view;
 
 import android.content.Context;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
+
+import com.kingja.supershapeview.core.SuperManager;
 
 /**
  * Description:TODO
@@ -12,6 +15,11 @@ import android.widget.RelativeLayout;
  * Email:kingjavip@gmail.com
  */
 public class SuperShapeRelativeLayout extends RelativeLayout {
+    private SuperManager superManager;
+
+    public SuperManager getSuperManager() {
+        return superManager;
+    }
 
     public SuperShapeRelativeLayout(Context context) {
         super(context);
@@ -28,6 +36,23 @@ public class SuperShapeRelativeLayout extends RelativeLayout {
     }
 
     private void initSuperShapeView(AttributeSet attrs) {
-        new SuperConfig().beSuperView(attrs, this);
+        superManager = new SuperManager(attrs, this);
+        superManager.beSuperView();
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        superManager.buildShape(null);
+    }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        return superManager.onSaveInstanceState(super.onSaveInstanceState());
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        super.onRestoreInstanceState(superManager.onRestoreInstanceState(state));
     }
 }

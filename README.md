@@ -1,5 +1,5 @@
 # SuperShapeView
-A smart custom view support shapes for TextView ,EditView ,instead of shape.xml. CLICK THE ***STAR***  if it's useful for you.
+A smart custom view support shapes for TextView ,EditView ,ImageView and so on,instead of shape.xml. CLICK THE ***STAR***  if it's useful for you.
 
 ## Preview
 <div align="center"><img src="imgs/super_shape_view.png"/></div>
@@ -20,36 +20,60 @@ A smart custom view support shapes for TextView ,EditView ,instead of shape.xml.
 
 ## Gradle
 ```java
- compile 'com.kingja.supershapeview:supershapeview:1.1.1'
+ compile 'com.kingja.supershapeview:supershapeview:1.2.0'
 ```
 
 ## Usage
-* TextView
+##### in xml
+* Image
 ```xml
-<com.kingja.supershapeview.SuperShapeTextView
-        android:textColor="#ffffff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="12dp"
-        android:text="Sure"
-        app:super_cornerRadius="56dp"
-        app:super_solidColor="#b143ba"/>
+<com.kingja.supershapeview.view.SuperShapeImageView
+    android:id="@+id/ssiv"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:onClick="changeIvStyle"
+    android:scaleType="centerCrop"
+    android:src="@mipmap/taylor"
+    app:super_cornerRadius="50dp"
+    app:super_strokeColor="#000000"
+    app:super_strokeWidth="2dp"/>
 ```
-* EditText
+* others
 ```xml
-<com.kingja.supershapeview.SuperShapeEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="请输入用户名"
-        android:padding="12dp"
-        android:textColor="#ffffff"
-        app:super_cornerRadius="6dp"
-        app:super_solidColor="#b143ba"
-        app:super_strokeWidth="1dp" />
+<com.kingja.supershapeview.view.SuperShapeTextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="12dp"
+    android:text="更多"
+    android:textColor="#d2490e"
+    app:super_dashGap="2dp"
+    app:super_dashWidth="2dp"
+    app:super_solidColor="#ffffff"
+    app:super_strokeColor="#d2490e"
+    app:super_strokeWidth="1dp"/>
+```
+
+##### modify attrs dynamically
+```java
+SuperShapeTextView superShapeTextView = (SuperShapeTextView) view;
+SuperManager superManager = superShapeTextView.getSuperManager();
+superManager.setSolidColor(0xff303F9F);
+superManager.setStrokeColor(getResources().getColor(R.color.colorAccent));
+superManager.setCorner(20);//DP
+superManager.setStrokeWidth(2);//DP
+superManager.setDashGap(2);//DP
+superManager.setDashWidth(2);//DP
+superManager.setCorner(10,6,10,6);
+...
 ```
 
 ## Changelog
+**v1.2.0**
+- add API for setting attrs
+- add ImageView Shape (SuperShapeImageView)
 
 **v1.1.1**
 - Initial release 

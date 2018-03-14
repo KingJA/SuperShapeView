@@ -16,4 +16,5 @@
         <attr name="super_bottomRightRadius" format="dimension"/>
 
     </declare-styleable>
+
 </resources>
