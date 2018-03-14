@@ -4,9 +4,6 @@ A smart custom view support shapes for TextView ,EditView ,ImageView and so on,i
 ## Preview
 <div align="center"><img src="imgs/super_shape_view.png"/></div>
 
-## Download Demo
-![](imgs/qcode_1.2.0.png)
-
 ## Custom attribute
 | attribute | format | example  |
 | :------------- |:-------------| :-----|
@@ -73,10 +70,14 @@ superManager.setCorner(10,6,10,6);
 ...
 ```
 
+## Download Demo
+![](imgs/qcode_1.2.0.png)
+
+
 ## Changelog
 **v1.2.0**
-- add API for setting attrs
-- add ImageView Shape (SuperShapeImageView)
+- provide API for setting attrs
+- provide Shape for ImageView (SuperShapeImageView)
 
 **v1.1.1**
 - Initial release 
